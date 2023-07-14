@@ -1,0 +1,164 @@
+@use "sass:math";
+
+// FONT VAR
+
+$firstFont: sans-serif;
+$secondFont: monospace; 
+$thirdFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// BORDER VAR
+
+
+@mixin radius($righttop, $rightbottom, $leftbottom, $lefttop) {
+    border-top-right-radius: $righttop;
+    border-bottom-right-radius: $rightbottom;
+    border-bottom-left-radius: $leftbottom;
+    border-top-left-radius: $lefttop;
+}
+
+$minelevation: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$maxelevation: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+$simpleborder: 2px solid rgba(0, 0, 0, 0.5);
+
+// SPACING VAR
+
+$textmargin: 16px;
+$divmargin: 12px;
+$textPadding: 12px;
+$divPadding: 10px;
+
+// COLOR VAR 
+
+$main-background: #ffffff;
+$secondary-background: #3dc8a1;
+$tertiary-background: #eb5d9f;
+
+$black: #000000;
+$white: #ffffff;
+
+$first-color: #164245;
+$second-color: #b6ffff;
+$third-color: #f876c4;
+$fourth-color: #6f1a35;
+
+$extraSmall: 0px; 
+$small: 768px; 
+$medium: 1024px; 
+$large: 1440px; 
+$extraLarge: 1920px; 
+
+// EXTENDS
+
+%maintitle {
+   
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+%clickable {
+    text-align: center;
+    cursor: pointer;
+    padding: 12px;
+    margin: 12px;
+}
+
+%input {
+    text-align: center;
+    cursor: pointer;
+    padding: $textPadding;
+    margin: $textmargin;
+    margin-bottom: rem(12px)
+}
+
+%activeButton {
+    border: 2px solid white;
+    outline: 1px 2px solid $third-color;
+    background-color: $tertiary-background;
+}
+
+// FUNCTIONS
+
+
+
+@function height($width, $mult) { 
+    @return $width * $mult
+}
+
+// funzione conversione px rem
+
+$basesize: 16px;
+@function rem($px) {
+  @return math.div($px, $basesize) * 1rem;
+}
+
+
+
+@function shade($color, $percentage) {
+  @if ($percentage > 50) {
+    @return mix(#000000, $color, $percentage);
+  } @else {
+    @return mix(#ffffff, $color, $percentage);
+  }
+}
+
+@function column($col) {
+  @return math.div(100%, 12) * $col;
+}
+
+// MIXINS
+
+@mixin flexDirection($value, $justify, $align) {
+  display: flex;
+  flex-direction: $value;
+  justify-content: $justify;
+  align-items: $align;
+  
+}
+
+@mixin absolutePosition($firstProperty, $firstValue, $secondProperty, $secondValue) {
+  position: absolute;
+  $firstProperty: $firstValue;
+  $secondProperty: $secondValue;
+}
+
+@mixin centerAbsolute($xPerc, $yPerc) {
+      transform: translateX($xPerc);
+      transform: translateY($yPerc);
+}
+
+
+
+// MediaQuery Mixins
+
+@mixin xs {
+  @media only screen and (min-width: $extraSmall) and (max-width: #{$small - 1 }) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media only screen and (min-width: $small) and (max-width: #{$medium - 1 }) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (min-width: $medium) and (max-width: #{$large - 1 }) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (min-width: $large) and (max-width: #{$extraLarge - 1 }) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media only screen and (min-width: $extraLarge) {
+    @content;
+  }
+}
+
