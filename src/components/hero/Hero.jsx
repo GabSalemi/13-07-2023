@@ -1,4 +1,6 @@
 import Head from "next/head";
+import styles from "@/components/hero/hero.module.scss"
+
 
 const Hero = () => {
 
@@ -6,7 +8,7 @@ const Hero = () => {
     
 
 return <>
-            <div className="hero__section">
+            <div className={styles.hero__section}>
                 <h1>Hero Section</h1>
             </div>
         </>
