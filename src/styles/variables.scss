@@ -6,11 +6,6 @@ $thirdFont: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 // BORDER VAR
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 @mixin radius($righttop, $rightbottom, $leftbottom, $lefttop) {
     border-top-right-radius: $righttop;
@@ -44,10 +39,3 @@ $first-color: #164245;
 $second-color: #b6ffff;
 $third-color: #f876c4;
 $fourth-color: #6f1a35;
-
-$extraSmall: 0px; 
-$small: 768px; 
-$medium: 1024px; 
-$large: 1440px; 
-$extraLarge: 1920px; 
-
