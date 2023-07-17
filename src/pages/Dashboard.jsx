@@ -19,7 +19,7 @@ export default function Dashboard() {
   return <div className="Dashboard">
             <div className="title__div">
               <h1>Your Profile</h1>
-              <Link href={"/Home"}><h3>Return to home</h3></Link>
+              <Link href={"/"}><h3>Return to home</h3></Link>
             </div>
             <h2>{loggedUsername}</h2>
             <p>{loggedEmail}</p>

@@ -20,7 +20,7 @@ export default function(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="locations__page">
-        {props.data.map((room) => <LocationsCards data={room} id={room.id}/>)}
+        {props.data.map((room) => <LocationsCards data={room} id={room.id} key={room.id}/>)}
     </div>
     </>
 }

@@ -37,7 +37,7 @@ const LayoutUser = ({ children }) => {
                     </div>)}
                 </div>
                 <div className="buttons__div">
-                    <button><Link href={"/Hero"}>Return to Home</Link></button>
+                    <button><Link href={"/"}>Return to Home</Link></button>
                     <button><Link href={"/Locations"}>Return to Locations</Link></button>
                 </div>
                 </div>
